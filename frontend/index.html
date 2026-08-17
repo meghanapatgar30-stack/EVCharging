@@ -1,1 +1,135 @@
-somthing
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EV Charge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="brand">⚡ EV Charge</div>
+    </div>
+  </header>
+
+  <!-- Hero / intro -->
+  <section class="hero">
+    <div class="container">
+      <h1>Find and book EV charging stations</h1>
+      <p class="subtitle">A simple way to locate nearby charging stations and reserve a charger in a few clicks.</p>
+
+      <!-- Quick stats -->
+      <div class="stats-row" id="stats-row">
+        <div class="stat-card">
+          <div class="stat-value" id="stat-total-stations">--</div>
+          <div class="stat-label">Total Stations</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-available-chargers">--</div>
+          <div class="stat-label">Available Chargers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-active-bookings">--</div>
+          <div class="stat-label">Active Bookings</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search + Filters -->
+  <section class="container section">
+    <div class="search-filters">
+      <input type="text" id="search-input" class="input" placeholder="Search by station name or location..." />
+
+      <select id="filter-location" class="input">
+        <option value="">All Locations</option>
+      </select>
+
+      <select id="filter-availability" class="input">
+        <option value="">All Availability</option>
+        <option value="Available">Available</option>
+        <option value="Busy">Busy</option>
+        <option value="Offline">Offline</option>
+      </select>
+
+      <select id="filter-type" class="input">
+        <option value="">All Charging Types</option>
+      </select>
+
+      <button id="clear-filters-btn" class="btn btn-outline">Clear Filters</button>
+    </div>
+  </section>
+
+  <!-- Stations list -->
+  <section class="container section">
+    <h2 class="section-title">Charging Stations</h2>
+    <p class="muted" id="results-count"></p>
+    <div id="stations-grid" class="stations-grid">
+      <p class="muted">Loading stations...</p>
+    </div>
+  </section>
+
+  <!-- Booking section -->
+  <section class="container section" id="booking-section">
+    <h2 class="section-title">Book a Charger</h2>
+
+    <div id="booking-success" class="success-message hidden">
+      <strong>✅ Booking confirmed!</strong>
+      <p id="booking-success-text"></p>
+    </div>
+
+    <form id="booking-form" class="booking-form">
+      <div class="form-group">
+        <label for="booking-station">Station</label>
+        <select id="booking-station" required>
+          <option value="">Select a station</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="booking-charger">Charger</label>
+        <select id="booking-charger" required>
+          <option value="">Select a station first</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="booking-date">Date</label>
+        <input type="date" id="booking-date" required />
+      </div>
+
+      <div class="form-group">
+        <label for="booking-time">Time</label>
+        <input type="time" id="booking-time" required />
+      </div>
+
+      <div class="form-group">
+        <label for="booking-user">Your Name</label>
+        <input type="text" id="booking-user" placeholder="e.g. Rahul Shetty" required />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Confirm Booking</button>
+      <p id="booking-error" class="error-message hidden"></p>
+    </form>
+  </section>
+
+  <!-- Recent bookings -->
+  <section class="container section">
+    <h2 class="section-title">Recent Bookings</h2>
+    <div id="bookings-list" class="bookings-list">
+      <p class="muted">Loading bookings...</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>EV Charge &mdash; Built for a college project demonstration.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
